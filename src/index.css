@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+*{
+    font-family: "Manrope", sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
