@@ -5,7 +5,7 @@ import Footer from '../Components/Main/Footer'
 
 const Movies = () => {
   return (
-    <div>
+    <div className='py-[60px] bg-[#141414]'>
       <CategorySlider/>
       <CategorySlider/>
       <CategorySlider/>

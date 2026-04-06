@@ -21,21 +21,21 @@ const SupportForm = () => {
   ];
 
   return (
-    <div className="w-full h-[auto] bg-[#141414] pt-[80px] px-[80px]">
-      <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+    <div className="w-full h-[auto] bg-[#141414] pt-[80px] px-[80px] ">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start pt-[20px]">
         
         {/* Left Side */}
         <div className="lg:w-5/12">
-          <h1 className="text-white text-[38px] md:text-5xl font-bold leading-tight">
+          <h1 className="text-white text-[38px] md:text-5xl font-bold leading-tight ">
             Welcome to our support page!
           </h1>
-          <p className="text-[#999999] text-lg mt-6 max-w-md">
+          <p className="text-[#999999] text-lg pt-[14px] max-w-md">
             We're here to help you with any problems you may be having with our product.
           </p>
           <img 
             src="/support.png" 
             alt="Support" 
-            className="mt-16 hidden lg:block w-full max-w-md"
+            className="pt-[20px] hidden lg:block w-full max-w-md"
           />
         </div>
 

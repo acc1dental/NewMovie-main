@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { Link } from "react-router-dom";
 
 const movies = [
   {
@@ -44,12 +45,12 @@ const movies = [
   },
 ];
 
-const CategorySlider = () => {
+const SliderToo = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   return (
-    <section className="bg-[#141414] px-6 py-16 md:px-12 lg:px-20 text-white">
+    <section className="bg-[#141414] px-6 pt-[120px] mt-[120px] md:px-12 lg:px-20 text-white">
       <div className="mx-auto max-w-[1800px]">
         
         {/* Section Header */}
@@ -109,6 +110,7 @@ const CategorySlider = () => {
           {movies.map((movie) => (
             <SwiperSlide key={movie.id}>
               <div className="group cursor-pointer">
+                <Link to={"/movie_inside"}>
                 <div className="relative overflow-hidden rounded-3xl bg-[#111111] p-3 transition-all duration-300 hover:bg-[#1a1a1a]">
                   <div className="relative overflow-hidden rounded-2xl">
                     <img
@@ -123,6 +125,7 @@ const CategorySlider = () => {
                     {movie.title}
                   </h3>
                 </div>
+                </Link>
               </div>
             </SwiperSlide>
           ))}
@@ -132,4 +135,4 @@ const CategorySlider = () => {
   );
 };
 
-export default CategorySlider;
+export default SliderToo;

@@ -12,6 +12,10 @@ import Plan from '../Components/Main/Plan'
 import Questions from '../Components/Main/Questions'
 import Movies from '../Pages/Movies'
 import Subscription from '../Pages/Subscription'
+import Sign from '../Pages/Sign'
+import Inside from '../Pages/Movie_inside'
+
+
 
 
 function App() {
@@ -29,10 +33,8 @@ function App() {
       <Route path='/support' element={<Support/>}/>
       <Route path='/moviesandshows' element={<Movies/>}/>
       <Route path='/subs' element={<Subscription/>}/>
-
-
-
-        
+      <Route path='/signin' element={<Sign/>}/>
+      <Route path='/movie_inside' element={<Inside/>}/>
     </Routes>
     </BrowserRouter>
       )

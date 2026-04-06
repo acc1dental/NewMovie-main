@@ -85,18 +85,18 @@ const StreamVibePricing = () => {
 
                 {/* Price */}
                 <div className="mb-10">
-                  <span className="text-5xl font-bold tracking-tight">
+                  <span className="text-[40px] font-[600] tracking-tight">
                     ${price}
                   </span>
                   <span className="text-gray-500 text-xl ml-1">{period}</span>
                 </div>
 
                 {/* Buttons */}
-                <div className="space-y-4 mt-auto">
-                  <button className="w-full py-3.5 rounded-xl border border-zinc-700 hover:border-zinc-500 text-white font-medium transition-colors">
+                <div className="space-y-4 mt-auto flex gap-[20px]">
+                  <button className="w-[196px] h-[63px] rounded-xl border border-zinc-700 hover:border-zinc-500 text-white font-medium transition-colors">
                     Start Free Trial
                   </button>
-                  <button className="w-full py-3.5 rounded-xl bg-red-600 hover:bg-red-700 font-semibold transition-colors">
+                  <button className="w-[196px] h-[63px] rounded-xl bg-red-600 hover:bg-red-700 font-semibold transition-colors">
                     Choose Plan
                   </button>
                 </div>

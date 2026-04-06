@@ -2,6 +2,7 @@ import React from 'react'
 import Banner from '../Components/Main/Banner'
 import Footer from '../Components/Main/Footer'
 import StreamVibePricing from '../Components/Main/Plan'
+import SearchPage from '../Components/Main/Search'
 
 const Subscription = () => {
   return (

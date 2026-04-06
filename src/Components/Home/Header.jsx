@@ -4,7 +4,7 @@ import Marquees from "../Main/Marquee";
 const Header = () => {
   return (
     <div className="h-[90vh] ">
-      <div className="w-[100%] h-[656px] flex flex-col absolute z-100 items-center bg-transparent text-white">
+      <div className="w-[100%] h-[800px] flex flex-col pt-25 top-0 absolute z-100 items-center bg-transparent text-white ">
         <div className="play_img pt-[30px]">
           <img src="./public/home-header.png" alt="" />
         </div>
