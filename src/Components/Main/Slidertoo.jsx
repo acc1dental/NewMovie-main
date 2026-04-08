@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -6,48 +6,32 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const movies = [
-  {
-    id: 1,
-    title: "¿Quieres ser mi hijo?",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Spirited Away",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    title: "The Dark Knight",
-    image: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Dilwale Dulhania Le",
-    image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: 5,
-    title: "The Green Mile",
-    image: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: 6,
-    title: "Interstellar",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: 7,
-    title: "Inception",
-    image: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200&auto=format&fit=crop",
-  },
-];
 
 const SliderToo = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+
+      const [movies , setMovies] = useState()
+          
+      let Base_Url = "https://api.themoviedb.org/3/"
+      let Api_Key = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZjkxOTNiNzkzNTBlOTliNGFhNjNkZjRmN2JlYjdmYyIsIm5iZiI6MTc1MjA0OTc0OC45OCwic3ViIjoiNjg2ZTI4NTQ5MmJjYzRiYWRlNmU4Yzg5Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.vG6XZs3MsR0-kOOz1FQPxF2Zu0Ddw4rnkw7PCS9D9AI'
+     
+  
+    const getMovies = async () => {
+     const responce = await axios.get(`${Base_Url}trending/movie/day` , {
+      headers:{
+        Authorization:Api_Key
+      }
+     })
+     setMovies(responce.data.results)
+    }
+  
+  
+    useEffect(()=> {
+      getMovies()
+    },[])
 
   return (
     <section className="bg-[#141414] px-6 pt-[120px] mt-[120px] md:px-12 lg:px-20 text-white">
@@ -107,14 +91,14 @@ const SliderToo = () => {
             1536: { slidesPerView: 5, spaceBetween: 24 },
           }}
         >
-          {movies.map((movie) => (
+          {movies && movies.map((movie) => (
             <SwiperSlide key={movie.id}>
               <div className="group cursor-pointer">
                 <Link to={"/movie_inside"}>
                 <div className="relative overflow-hidden rounded-3xl bg-[#111111] p-3 transition-all duration-300 hover:bg-[#1a1a1a]">
                   <div className="relative overflow-hidden rounded-2xl">
                     <img
-                      src={movie.image}
+                      src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                       alt={movie.title}
                       className="h-[340px] w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
