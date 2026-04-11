@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../Components/Main/Banner';
 import Footer from '../Components/Main/Footer';
 
 const MovieLogin = () => {
+
+
+  useEffect(() => {
+        document.documentElement.scrollTop = 0;
+      }, []);
   // 1. Initialize state to track which view to show
   const [isLogin, setIsLogin] = useState(true);
 

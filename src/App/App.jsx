@@ -14,6 +14,8 @@ import Movies from '../Pages/Movies'
 import Subscription from '../Pages/Subscription'
 import Sign from '../Pages/Sign'
 import Inside from '../Pages/Movie_inside'
+import SearchPage from '../Components/Main/Search'
+import Actor from '../Pages/Actor'
 
 
 
@@ -34,7 +36,11 @@ function App() {
       <Route path='/moviesandshows' element={<Movies/>}/>
       <Route path='/subs' element={<Subscription/>}/>
       <Route path='/signin' element={<Sign/>}/>
-      <Route path='/movie_inside' element={<Inside/>}/>
+      <Route path='/movie_inside/:id' element={<Inside/>}/>
+      <Route path='/search' element={<SearchPage/>}/>
+      <Route path='/actor/:id' element={<Actor/>}/>
+
+
     </Routes>
     </BrowserRouter>
       )

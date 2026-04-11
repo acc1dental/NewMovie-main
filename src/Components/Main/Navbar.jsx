@@ -31,7 +31,7 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 w-full h-[100px] z-[200] flex items-center justify-between px-[80px] text-white transition-all duration-300
+      className={`fixed top-0 left-0 w-full  h-[90px] z-[200] flex items-center justify-between px-[80px] text-white transition-all duration-300
         ${scrolled 
           ? 'bg-[#141414]/95 backdrop-blur-md shadow-lg' 
           : 'bg-transparent'

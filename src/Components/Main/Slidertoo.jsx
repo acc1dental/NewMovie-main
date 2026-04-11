@@ -6,26 +6,21 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import Api_Service from "../../Service/Api_Service";
 
 
-const SliderToo = () => {
+const SliderToo = ({title , description, url}) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
       const [movies , setMovies] = useState()
           
-      let Base_Url = "https://api.themoviedb.org/3/"
-      let Api_Key = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZjkxOTNiNzkzNTBlOTliNGFhNjNkZjRmN2JlYjdmYyIsIm5iZiI6MTc1MjA0OTc0OC45OCwic3ViIjoiNjg2ZTI4NTQ5MmJjYzRiYWRlNmU4Yzg5Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.vG6XZs3MsR0-kOOz1FQPxF2Zu0Ddw4rnkw7PCS9D9AI'
+     
      
   
     const getMovies = async () => {
-     const responce = await axios.get(`${Base_Url}trending/movie/day` , {
-      headers:{
-        Authorization:Api_Key
-      }
-     })
-     setMovies(responce.data.results)
+       const response = await Api_Service.GetData(url) 
+      setMovies(response.results)
     }
   
   
@@ -34,18 +29,17 @@ const SliderToo = () => {
     },[])
 
   return (
-    <section className="bg-[#141414] px-6 pt-[120px] mt-[120px] md:px-12 lg:px-20 text-white">
+    <section className="bg-[#141414] px-6 pt-[120px]  md:px-12 lg:px-20 text-white">
       <div className="mx-auto max-w-[1800px]">
         
         {/* Section Header */}
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-[28px] font-bold tracking-tight">
-              Explore our wide variety of categories
+              {title}
             </h2>
             <p className="text-[#999999] text-[15px] mt-3 max-w-xl">
-              Whether you’re looking for a comedy to make you laugh, a drama to make you think, 
-              or a documentary to learn something new.
+              {description}
             </p>
           </div>
 
@@ -94,7 +88,7 @@ const SliderToo = () => {
           {movies && movies.map((movie) => (
             <SwiperSlide key={movie.id}>
               <div className="group cursor-pointer">
-                <Link to={"/movie_inside"}>
+                <Link to={`/movie_inside/${movie.id}`}>
                 <div className="relative overflow-hidden rounded-3xl bg-[#111111] p-3 transition-all duration-300 hover:bg-[#1a1a1a]">
                   <div className="relative overflow-hidden rounded-2xl">
                     <img

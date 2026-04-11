@@ -10,7 +10,7 @@ const SearchPage = () => {
 
   return (
     /* Use min-h-screen to ensure the dark background covers the whole page */
-    <div className="bg-[#141414] min-h-screen w-full text-white flex flex-col">
+    <div className="bg-[#141414] min-h-screen w-full text-white flex flex-col pt-[70px]">
       <Navbar/>
 
       <main className="flex-grow max-w-7xl mx-auto w-full px-4 md:px-8 py-12">
@@ -44,8 +44,9 @@ const SearchPage = () => {
         </div>
 
         {/* Moving Banner inside main keeps it centered and bounded */}
-        <Banner/>
       </main>
+        <Banner/>
+
 
       <Footer/>
     </div>
