@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 // --- 1. Data Structure (Fictional StreamVibe Content) ---
 const marqueeData = [
@@ -52,7 +53,11 @@ const Banner = () => {
                   <p className='font-[400] text-[16px] text-gray-300'>This is a clear and concise call to action that encourages users to sign up for a free trial of StreamVibe.</p>
               </div>
 
+              <NavLink to="/subs">
               <button className='w-[150px] h-[50px] rounded-[8px] bg-[#E50000] text-white font-[600] text-[16px] cursor-pointer hover:bg-red-700 transition-colors'>Start a Free Trail</button>
+
+              </NavLink>
+
           </div>
         </div>
     </div>
